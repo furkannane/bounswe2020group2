@@ -13,18 +13,17 @@ import com.example.getflix.adapters.SubcategoryAdapter
 import com.example.getflix.databinding.FragmentCategoriesBinding
 
 
-
 class CategoriesFragment : Fragment() {
     private lateinit var categoriesViewModel: CategoriesViewModel
 
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
-        val binding = DataBindingUtil.inflate<FragmentCategoriesBinding>(inflater,R.layout.fragment_categories,
-            container,false)
-        categoriesViewModel =  ViewModelProvider(this).get(CategoriesViewModel::class.java)
+        val binding = DataBindingUtil.inflate<FragmentCategoriesBinding>(inflater, R.layout.fragment_categories,
+                container, false)
+        categoriesViewModel = ViewModelProvider(this).get(CategoriesViewModel::class.java)
         val adapter = SubcategoryAdapter()
         categoriesViewModel.displayedCategories.observe(viewLifecycleOwner, Observer {
             it.let {
